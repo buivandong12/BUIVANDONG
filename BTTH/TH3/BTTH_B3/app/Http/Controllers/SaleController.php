@@ -13,7 +13,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $data = Sale::with('medicine')->get();
+        $data = Sale::with('medicine')->paginate(5);
+        //paginate để phn trang có bao nhiêu bảng ghi
         return view('sale.index', compact('data'));
         //
     }
